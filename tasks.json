@@ -1,0 +1,26 @@
+[
+  {
+    "id": "58b46de4-5b0f-45ce-8884-d73242196bfb",
+    "title": "do homework",
+    "description": "math homework due tomorrow",
+    "status": "completed",
+    "created_at": "2025-12-20T22:13:08.300922",
+    "updated_at": "2025-12-26T20:50:42.865904"
+  },
+  {
+    "id": "57525377-6024-4cde-99f3-bda4a6de0298",
+    "title": "hackathone 2",
+    "description": "had to complete phase 2",
+    "status": "pending",
+    "created_at": "2025-12-26T20:38:53.717415",
+    "updated_at": "2025-12-26T20:55:39.810173"
+  },
+  {
+    "id": "a176f2b4-a864-407d-8855-c3fc4be6dfe0",
+    "title": "assignment",
+    "description": "cs101 assignment",
+    "status": "pending",
+    "created_at": "2025-12-26T20:48:37.144865",
+    "updated_at": "2025-12-26T20:51:29.614474"
+  }
+]

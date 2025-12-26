@@ -1,0 +1,1 @@
+"""Model tests package for Todo Console App."""
