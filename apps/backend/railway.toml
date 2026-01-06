@@ -1,13 +1,16 @@
-# Tell Railway to use the Python builder directly
-[build]
-builder = "heroku/python"
-
 [deploy]
 restartPolicyType = "always"
 restartPolicyMaxRetries = 10
 
-[start]
-command = "python -m uvicorn main:app --host=0.0.0.0 --port=$PORT"
-
 [environment.variables]
 PORT = "8000"
+
+[[services]]
+name = "backend"
+location = "apps/backend"
+builder = "heroku/python"
+buildCommand = "pip install -r requirements.txt"
+startCommand = "python -m uvicorn main:app --host=0.0.0.0 --port=$PORT"
+
+[[services.dns]]
+domains = ["backend.up.railway.app"]
