@@ -5,12 +5,16 @@ detected = true
 [build.args]
 PYTHON_VERSION = "3.11"
 
+[build.nixpacks]
+phases.setup.commands = ["python -m pip install --upgrade pip"]
+phases.install.commands = ["pip install -r requirements.txt"]
+
 [deploy]
 restartPolicyType = "always"
 restartPolicyMaxRetries = 10
 
 [start]
-command = "bash -c 'pip install -r requirements.txt && uvicorn main:app --host=0.0.0.0 --port=$PORT'"
+command = "uvicorn main:app --host=0.0.0.0 --port=$PORT"
 
 [environment.variables]
 PORT = "8000"
