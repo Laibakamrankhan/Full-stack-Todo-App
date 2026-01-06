@@ -1,162 +1,163 @@
-# Project Constitution: Hackathon II - Evolution of Todo
+<!--
+SYNC IMPACT REPORT:
+Version change: 1.1.0 → 1.2.0
+Modified principles: Core Philosophy → Spec-Driven Development
+Modified principles: Architectural Principles → Architecture & Tech Stack
+Modified principles: Workflow Standards → Development Rules
+Modified principles: Configuration & Secrets → Security Rules
+Modified principles: Definition of Done → Definition of Done
+Added sections: Vision, Core Principles
+Removed sections: Evolutionary Architecture, Phase Isolation Rule, User Isolation & Security First, Checkpoint Pattern, Spec-Driven TDD, Monorepo Stability, 12-Factor Compliance, Authenticated Multi-User Correctness
+Templates requiring updates:
+- .specify/templates/plan-template.md ⚠ pending
+- .specify/templates/spec-template.md ⚠ pending
+- .specify/templates/tasks-template.md ⚠ pending
+- .specify/templates/commands/*.md ⚠ pending
+Follow-up TODOs: none
+-->
+
+# Project Constitution – Todo Evolution Phase II
+
+## Vision
+Transform a single-user in-memory CLI Todo app into a secure, scalable, multi-user
+full-stack web application following spec-driven development principles.
 
 ## Immutable Governance Framework
 
-This Project Constitution establishes the foundational principles, governance mechanisms, and operational guidelines for the "Hackathon II: Evolution of Todo" project. This document is immutable and serves as the ultimate authority for all project decisions, architectural choices, and implementation standards throughout the 5-phase evolution from Console App to Cloud-Native Distributed System.
+This Project Constitution establishes the foundational principles, governance mechanisms, and operational guidelines for the "Todo Evolution Phase II" project. This document is immutable and serves as the ultimate authority for all project decisions, architectural choices, and implementation standards throughout the project lifecycle.
 
 ---
 
-## Core Philosophy (SDD-RI)
+## Core Principles
 
-### Spec-First Development
-- **No implementation without specification**: All code, architecture, and features must be preceded by formal specification
-- **Workflow Sequence**: Constitution → Spec → Plan → Tasks → Implement
-- **Verification Requirement**: All implementations must be traceable to approved specifications
+### 1. **Spec-Driven Development is Mandatory**
+- **No feature implemented without approved spec**: All features must be specified before implementation
+- **Sequential workflow**: Constitution → Spec → Plan → Tasks → Implementation
+- **Verification requirement**: All implementations must align with approved specifications
 
-### No Manual Code Principle
-- **Human as Architect**: Humans define requirements, architecture, and specifications
-- **Agent as Implementer**: AI agents generate all code based on specifications
-- **Quality Assurance**: Human oversight for architectural decisions, agent execution for implementation
+### 2. **Clean Architecture and Separation of Concerns**
+- **Layer isolation**: UI, API, Business Logic, and Persistence must be strictly separated
+- **Authentication isolation**: Authentication logic must not leak into business logic
+- **Clear boundaries**: Each component has a single, well-defined responsibility
 
-### Reusable Intelligence Priority
-- **Intelligence Over Code**: Prioritize capturing architectural decisions, patterns, and knowledge
-- **Documentation Standards**: Maintain Architecture Decision Records (ADRs), Prompt History Records (PHRs), and reusable subagents
-- **Knowledge Transfer**: Ensure all decisions are documented for future reference and learning
+### 3. **Security by Default**
+- **Authentication requirement**: All API endpoints require JWT authentication
+- **User data isolation**: Users can only access their own tasks
+- **Security priority**: Security considerations take precedence over convenience
 
----
-
-## Architectural Principles
-
-### Evolutionary Architecture
-- **Design for Future, Implement for Present**: Create flexible interfaces that allow for Phase II+ implementations
-- **Phase I Code Foundation**: All initial implementations must use interfaces and abstractions that support future swaps
-- **Backward Compatibility**: Ensure new phases maintain compatibility with previous phase contracts where possible
-
-### Single Responsibility Principle (SRP)
-- **Clear Separation**: Each module, class, and function has exactly one clear responsibility
-- **Business Logic Isolation**: Separate business logic from I/O operations and UI concerns
-- **Interface Boundaries**: Define clear contracts between different system components
-
-### User Experience First
-- **Intuitive Interfaces**: Design for maximum usability and minimal cognitive load
-- **Helpful Interactions**: Provide clear feedback and guidance throughout user journeys
-- **Graceful Error Handling**: Handle failures gracefully with user-friendly responses
+### 4. **Production-Ready Code Standards**
+- **Quality standards**: All code must meet production readiness criteria
+- **Error handling**: Proper error handling and validation in all components
+- **Performance considerations**: Code optimized for production use
 
 ---
 
-## Workflow Standards
+## Architecture & Tech Stack
 
-### The Checkpoint Pattern
-- **Atomic Implementation**: Each implementation follows Generate → Review → Commit → Next Task cycle
-- **Verification Points**: No progression without successful completion of each checkpoint
-- **Revert Capability**: Ability to rollback to previous stable states at each checkpoint
+### 5. **Frontend: Next.js 16+ (App Router)**
+- **Framework requirement**: Use Next.js 16+ with App Router for frontend
+- **Modern practices**: Follow Next.js best practices and conventions
+- **Responsive design**: Ensure responsive and accessible UI
 
-### Test-Driven Development (TDD)
-- **Specification-Based Testing**: Tests defined in Spec/Plan phase before implementation
-- **Test Implementation**: Tests created before or alongside features
-- **Coverage Requirements**: All functionality must have corresponding test coverage
+### 6. **Backend: Python FastAPI**
+- **Framework requirement**: Use Python FastAPI for backend API
+- **RESTful design**: Follow RESTful API principles
+- **Type safety**: Use type hints throughout the codebase
 
-### Continuous Integration & Delivery
-- **Automated Validation**: All changes validated against specifications and tests
-- **Reproducible Builds**: Ensures consistent builds across all environments
-- **Incremental Progression**: Features delivered in small, testable increments
+### 7. **ORM: SQLModel**
+- **Database interaction**: Use SQLModel for database operations
+- **Type safety**: Leverage SQLModel's type safety features
+- **Database abstraction**: Proper abstraction of database operations
 
----
+### 8. **Database: Neon Serverless PostgreSQL**
+- **Database provider**: Use Neon Serverless PostgreSQL for persistence
+- **Connection management**: Proper connection pooling and management
+- **Schema management**: Follow SQLModel conventions for schema definition
 
-## Tech Stack Foundation
-
-### Primary Technologies
-- **Backend**: Python 3.13+, FastAPI, SQLModel for robust API development
-- **Frontend**: TypeScript, Next.js 15+, Tailwind CSS for modern UI experiences
-- **Database**: Neon PostgreSQL for scalable data persistence
-- **Authentication**: Better Auth (JWT) for secure user management
-- **AI Integration**: OpenAI Agents SDK for intelligent features
-- **Infrastructure**: Docker, Kubernetes for containerized deployments
-- **Messaging**: Kafka, Dapr for distributed system communication
-- **Tooling**: uv for Python package management, MCP for orchestration
-
-### Technology Selection Criteria
-- **Scalability**: Technologies must support growth from console app to cloud-native system
-- **Maintainability**: Easy to maintain and extend throughout evolution phases
-- **Community Support**: Active community and long-term viability
-- **Integration Capabilities**: Seamless integration between different technology stacks
+### 9. **Authentication: Better Auth (JWT-based)**
+- **Authentication provider**: Use Better Auth for JWT-based authentication
+- **Token verification**: JWT tokens must be verified on backend
+- **Secure implementation**: Follow JWT security best practices
 
 ---
 
-## Code Quality Gates
+## Development Rules
 
-### Type Safety Standards
-- **Python**: `mypy --strict` for comprehensive static type checking
-- **TypeScript**: `tsc --strict` for strict type safety enforcement
-- **Interface Contracts**: Strong typing for all inter-component communications
+### 10. **Claude Code + Spec-Kit Plus Mandate**
+- **Implementation requirement**: All implementation code must be generated via Claude Code + Spec-Kit Plus
+- **Manual coding prohibition**: Manual coding is strictly prohibited
+- **Quality assurance**: Human oversight for architectural decisions, agent execution for implementation
 
-### Error Handling Protocols
-- **No Silent Failures**: All errors must be explicitly handled or propagated
-- **User-Friendly Responses**: Technical errors translated to understandable messages
-- **Structured Error Format**: Consistent error response format across all services
+### 11. **No Manual Boilerplate Coding**
+- **Boilerplate generation**: All boilerplate code must be generated via tools
+- **Template usage**: Use provided templates and patterns
+- **Consistency requirement**: Maintain consistency through tooling
 
-### Configuration Management
-- **12-Factor App Methodology**: Follow industry-standard configuration practices
-- **Environment Separation**: Clear distinction between development, staging, and production
-- **Secrets Management**: `.env` files for sensitive information, never hardcoded
+### 12. **Each Phase Must Be Testable Independently**
+- **Test isolation**: Each phase must be independently testable
+- **Verification points**: Clear verification points for each phase
+- **Quality gates**: Each phase serves as a quality validation point
+
+### 13. **Clear Folder Structure**
+- **Frontend organization**: Clear folder structure for frontend components
+- **Backend organization**: Clear folder structure for backend components
+- **Separation**: Maintain clear separation between frontend and backend
+
+---
+
+## Security Rules
+
+### 14. **JWT Authentication Requirements**
+- **Universal authentication**: All API endpoints require JWT authentication
+- **Token verification**: JWT token must be verified on backend
+- **Unauthorized responses**: Unauthorized requests return 401
+
+### 15. **User Data Isolation**
+- **Access restriction**: Users can only access their own tasks
+- **Cross-user protection**: Cross-user access is strictly forbidden
+- **Data scoping**: Every task is scoped to a single user
+
+### 16. **Secret Management**
+- **Environment variables**: Shared secret must be read from environment variables
+- **No committed secrets**: No secrets committed to repository
+- **Secure configuration**: Follow 12-factor app methodology for configuration management
 
 ---
 
 ## Definition of Done
 
-### Constitutional Compliance
-1. **Constitution Adherence**: All implementations must comply with this constitution
-2. **Specification Alignment**: Implementation must match approved specifications
-3. **Clean Build Achievement**: All builds must pass without warnings or errors
-4. **Reproducibility Standard**: All environments must be reproducible from configuration
+### 17. **Constitutional Compliance**
+- **Constitution adherence**: All implementations must comply with this constitution
+- **Specification alignment**: Implementation must match approved specifications
+- **Clean build achievement**: All builds must pass without warnings or errors
 
-### Quality Assurance Requirements
-- **Test Coverage**: All code must have comprehensive unit, integration, and end-to-end tests
-- **Performance Standards**: Meet defined performance benchmarks and scalability requirements
-- **Security Validation**: Pass security scanning and vulnerability assessments
-- **Documentation Completeness**: All public interfaces and architectural decisions documented
+### 18. **Multi-User Todo Web App**
+- **Multi-user functionality**: System correctly handles multiple users simultaneously
+- **User isolation**: User data properly isolated and secure
+- **Full functionality**: All todo features work for multiple users
 
-### Release Criteria
-- **Specification Traceability**: All features traceable back to approved specifications
-- **Quality Gate Compliance**: Pass all defined code quality and testing gates
-- **Operational Readiness**: Monitoring, logging, and alerting properly configured
-- **Rollback Capability**: Confirmed ability to rollback to previous stable version
+### 19. **JWT-Secured REST API**
+- **Authentication validation**: All API endpoints properly authenticate users
+- **Security compliance**: API follows JWT security best practices
+- **Access control**: Proper access control for all endpoints
 
----
+### 20. **Persistent Storage in Neon PostgreSQL**
+- **Database integration**: Proper integration with Neon PostgreSQL
+- **Data persistence**: All user data properly stored and retrieved
+- **Connection management**: Proper database connection handling
 
-## Evolution Phase Governance
+### 21. **Responsive, Creative UI**
+- **User experience**: Responsive and intuitive user interface
+- **Creative design**: Creative and engaging UI design
+- **Accessibility**: Accessible to all users
 
-### Phase Transition Protocol
-- **Approval Requirements**: Each phase transition requires explicit approval of deliverables
-- **Compatibility Validation**: New phases must validate backward compatibility where required
-- **Performance Verification**: Each phase meets defined performance and reliability standards
-
-### Future-Proofing Mechanisms
-- **Interface Stability**: Core interfaces designed to remain stable across phases
-- **Extension Points**: Built-in mechanisms for adding new capabilities without breaking changes
-- **Technology Migration Paths**: Clear strategies for upgrading or replacing technologies
-
-### Risk Management
-- **Change Impact Assessment**: Evaluate impact of changes on future phases
-- **Dependency Management**: Careful consideration of third-party dependencies
-- **Technical Debt Prevention**: Regular assessment and mitigation of accumulated technical debt
-
----
-
-## Governance and Decision Making
-
-### Decision Authority Matrix
-- **Constitutional Changes**: Require unanimous consensus among core team members
-- **Architectural Decisions**: Subject to architectural review board approval
-- **Implementation Decisions**: Delegated to implementation teams within constitutional bounds
-
-### Conflict Resolution
-- **Technical Disputes**: Resolved through architectural review and proof-of-concept validation
-- **Priority Conflicts**: Escalated to project leadership with clear impact assessment
-- **Resource Allocation**: Decided based on project roadmap and strategic priorities
+### 22. **Full Documentation in README**
+- **Setup instructions**: Clear setup instructions provided in README
+- **Environment reproduction**: Environments reproducible following README instructions
+- **Deployment validation**: System deployable using documented procedures
 
 ---
 
 *This constitution is effective as of the date of creation and remains immutable throughout the project lifecycle. Any exceptions or amendments require extraordinary circumstances and formal approval from the project governance board.*
 
-**Version**: 1.0.0 | **Ratified**: 2025-12-20 | **Last Amended**: N/A
+**Version**: 1.2.0 | **Ratified**: 2025-12-20 | **Last Amended**: 2026-01-02

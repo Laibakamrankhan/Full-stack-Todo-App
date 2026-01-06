@@ -1,80 +1,135 @@
-# Todo Console App
+# Evolution_of_Todo
 
-A feature-rich command-line interface (CLI) todo application built with Python, Typer, and Rich. The app provides an interactive menu system with persistent storage for managing your tasks efficiently.
+## Overview
+
+This is a todo application that demonstrates a progression from a simple console-based application to a full-stack web application with persistence and authentication.
 
 ## Features
 
-- **Interactive Menu System**: Single command to start the app with a toggle menu for all operations
-- **Task Management**: Add, list, update, delete, and toggle task completion status
-- **Persistent Storage**: Tasks are saved to a JSON file for persistence between sessions
-- **User-Friendly Interface**: Rich text formatting with color-coded status indicators
-- **Flexible ID Matching**: Use either full task IDs or shortened versions (first 8 characters)
+- Phase 1: Console-based todo application with in-memory storage
+- Phase 2: Full-stack web application with authentication and persistence
+- Phase 3: Advanced features with AI integration (Coming Soon)
 
-## Installation
+## Phase 1: Console Application
 
-1. Clone the repository:
+The first phase includes:
+
+- Add, list, complete, and delete todos
+- In-memory storage
+- Command-line interface using Typer
+- Console-based UI with Rich for formatting
+
+## Phase 2: Full-Stack Web Application
+
+The second phase includes:
+
+- **Backend**: FastAPI with SQLModel ORM for PostgreSQL integration
+- **Frontend**: Next.js 16+ with App Router for modern React development
+- **Authentication**: JWT-based authentication with Better Auth
+- **Database**: Neon Serverless PostgreSQL for persistence
+- **Security**: User data isolation with JWT token verification
+- **UI/UX**: Responsive, creative UI with animations and modern design
+
+## Setup Instructions
+
+### Prerequisites
+
+- Python 3.11+
+- Node.js 18+
+- PostgreSQL database (or Neon Serverless PostgreSQL account)
+
+### Backend Setup
+
+1. Navigate to the backend directory:
    ```bash
-   git clone https://github.com/Laibakamrankhan/Evolution_of_Todo_Phase_1.git
-   cd Evolution_of_Todo_Phase_1
+   cd apps/backend
    ```
 
-2. Install the package in development mode:
+2. Create a virtual environment:
    ```bash
-   pip install -e .
+   python -m venv venv
    ```
 
-## Usage
+3. Activate the virtual environment:
+   - On Windows:
+     ```bash
+     venv\Scripts\activate
+     ```
+   - On macOS/Linux:
+     ```bash
+     source venv/bin/activate
+     ```
 
-Start the interactive menu system:
-```bash
-todo run
-```
+4. Install dependencies:
+   ```bash
+   pip install -r requirements.txt
+   ```
 
-The app provides the following options:
-1. **Add Task**: Create a new task with a title and optional description
-2. **List All Tasks**: Display all tasks in a formatted table
-3. **Update Task**: Modify an existing task's title and description
-4. **Delete Task**: Remove a task from your list
-5. **Toggle Task Status**: Mark a task as completed or pending
-6. **Exit**: Quit the application
+5. Set up environment variables:
+   ```bash
+   cp ../../.env.example .env
+   ```
 
-## Command Line Interface
+   Edit the `.env` file with your database connection string and JWT secret.
 
-The app also supports direct command-line operations:
+6. Run the backend server:
+   ```bash
+   python -m src.main
+   ```
 
-```bash
-# Add a task
-todo add "Task Title" "Optional Description"
+### Frontend Setup
 
-# List all tasks
-todo list
+1. Navigate to the frontend directory:
+   ```bash
+   cd apps/frontend
+   ```
 
-# Update a task
-todo update <task-id> "New Title" "Optional New Description"
+2. Install dependencies:
+   ```bash
+   npm install
+   # or
+   yarn install
+   ```
 
-# Delete a task
-todo delete <task-id>
+3. Set up environment variables:
+   Create a `.env.local` file with:
+   ```
+   NEXT_PUBLIC_API_URL=http://localhost:8000
+   NEXT_PUBLIC_BETTER_AUTH_URL=http://localhost:3000
+   ```
 
-# Toggle task status
-todo toggle <task-id>
-```
+4. Run the development server:
+   ```bash
+   npm run dev
+   # or
+   yarn dev
+   ```
 
-## Project Structure
+The application will be available at `http://localhost:3000`.
 
-```
-todo_console_app/
-├── main.py          # CLI entry point and interactive menu
-├── common.py        # Shared service manager
-├── models/          # Data models (Task, TaskStatus)
-├── repositories/    # Data persistence (file and in-memory)
-├── services/        # Business logic layer
-└── ui/              # User interface components
-```
+### Environment Variables
 
-## Contributing
+The application requires the following environment variables:
 
-This project was developed with the assistance of Claude AI for code implementation, bug fixes, and feature development.
+- `DATABASE_URL`: PostgreSQL connection string
+- `JWT_SECRET`: Secret key for JWT token signing
+- `BETTER_AUTH_SECRET`: Secret for Better Auth
+- `NEXT_PUBLIC_API_URL`: Backend API URL for frontend
 
-## License
+## API Documentation
 
-This project is open source and available under the MIT License.
+The backend API provides the following endpoints:
+
+### Authentication
+- `POST /api/auth/register` - Register a new user
+- `POST /api/auth/login` - Login and get JWT token
+
+### Tasks
+- `GET /api/tasks` - Get all tasks for the authenticated user
+- `POST /api/tasks` - Create a new task
+- `GET /api/tasks/{id}` - Get a specific task
+- `PUT /api/tasks/{id}` - Update a specific task
+- `DELETE /api/tasks/{id}` - Delete a specific task
+- `PATCH /api/tasks/{id}/complete` - Toggle task completion status
+
+All task endpoints require a valid JWT token in the Authorization header.
