@@ -1,0 +1,16 @@
+[build]
+builder = "nixpacks"
+detected = true
+
+[build.args]
+PYTHON_VERSION = "3.11"
+
+[deploy]
+restartPolicyType = "always"
+restartPolicyMaxRetries = 10
+
+[start]
+command = "cd src && python -c \"from main import app; import uvicorn; import os; uvicorn.run(app, host='0.0.0.0', port=int(os.environ.get('PORT', 8000)))\""
+
+[environment.variables]
+PORT = "8000"
