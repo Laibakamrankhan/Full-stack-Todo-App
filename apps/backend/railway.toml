@@ -10,7 +10,7 @@ restartPolicyType = "always"
 restartPolicyMaxRetries = 10
 
 [start]
-command = "cd src && python -c \"from main import app; import uvicorn; import os; uvicorn.run(app, host='0.0.0.0', port=int(os.environ.get('PORT', 8000)))\""
+command = "uvicorn main:app --host=0.0.0.0 --port=$PORT"
 
 [environment.variables]
 PORT = "8000"
