@@ -1,0 +1,13 @@
+runtime:
+  huggingface_hub:
+    models:
+      # No models needed for a backend API
+
+hardware:
+  # Specify hardware requirements if needed
+  sku: cpu-basic
+
+sdk: docker
+
+env:
+  - PORT=8000
